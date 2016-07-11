@@ -4,6 +4,7 @@ const controller = require('lib/wiring/controller');
 const models = require('app/models');
 const Example = models.example;
 
+
 const authenticate = require('./concerns/authenticate');
 
 const index = (req, res, next) => {
@@ -20,7 +21,7 @@ const show = (req, res, next) => {
 
 const create = (req, res, next) => {
   let example = Object.assign(req.body.example, {
-    _owner: req.currentUser._id,
+    // _owner: req.currentUser._id,
   });
   Example.create(example)
     .then(example => res.json({ example }))
